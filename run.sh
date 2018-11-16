@@ -1,0 +1,3 @@
+# python data.py make_db train && python classifier.py train ./data/train ./model/train && python classifier.py predict ./data/train ./model/train ./data/train/ dev predict.tsv && python evaluate.py evaluate predict.tsv ./data/train/data.h5py dev ./data/y_vocab.cPickle
+# python classifier.py train ./data/train ./model/train && python classifier.py predict ./data/train ./model/train ./data/train/ dev predict.tsv && python evaluate.py evaluate predict.tsv ./data/train/data.h5py dev ./data/y_vocab.cPickle
+python classifier.py predict ./data/train ./model/train ./data/train/ dev predict.tsv && python evaluate.py evaluate predict.tsv ./data/train/data.h5py dev ./data/y_vocab.cPickle

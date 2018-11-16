@@ -42,8 +42,8 @@ def evaluate(predict_path, data_path, div, y_vocab_path):
                 hit[depth] = hit.get(depth, 0) + 1
     for d in ['b', 'm', 's', 'd']:
         if n[d] > 0:
-            print '%s-Accuracy: %.3f(%s/%s)' % (d, hit[d] / float(n[d]), hit[d], n[d])
-    score = sum([hit[d] / float(n[d]) * w
+            print '%s-Accuracy: %.3f(%s/%s)' % (d, hit.get(d, 0) / float(n[d]), hit.get(d, 0), n[d])
+    score = sum([hit.get(d, 0) / float(n[d]) * w
                  for d, w in zip(['b', 'm', 's', 'd'],
                                  [1.0, 1.2, 1.3, 1.4])]) / 4.0
     print 'score: %.3f' % score

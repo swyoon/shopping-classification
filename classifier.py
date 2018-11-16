@@ -29,8 +29,9 @@ from misc import get_logger, Option
 from network import TextOnly, top1_acc
 
 opt = Option('./config.json')
-cate1 = json.loads(open('../cate1.json').read())
-DEV_DATA_LIST = ['../dev.chunk.01']
+cate1 = json.loads(open('../data/cate1.json').read())
+# DEV_DATA_LIST = ['../data/dev.chunk.01']
+DEV_DATA_LIST = ['./data/train/data.h5py']
 
 
 class Classifier():
@@ -81,6 +82,7 @@ class Classifier():
                 s = inv_cate1['s'][s]
                 d = inv_cate1['d'][d]
             rets[pid] = tpl.format(pid=pid, b=b, m=m, s=s, d=d)
+            # print(tpl.format(pid=pid, b=b, m=m, s=s, d=d))
         no_answer = '{pid}\t-1\t-1\t-1\t-1'
         with open(out_path, 'w') as fout:
             for pid in pid_order:
